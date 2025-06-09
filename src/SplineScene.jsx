@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Spline from '@splinetool/react-spline';
 import './SplineScene.css';
 
@@ -42,6 +42,8 @@ const icons = [
 ];
 
 const SplineScene = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <div className="scene-container">
       <Spline
@@ -55,12 +57,17 @@ const SplineScene = () => {
           const x = radius * Math.cos(angle);
           const y = radius * Math.sin(angle);
 
+          const isHovered = hoveredIndex === i;
+          const baseTransform = `translate(${x}px, ${y}px)`;
+
           return (
             <a
               key={i}
               href={item.href}
-              className="icon-circle"
-              style={{ transform: `translate(${x}px, ${y}px)` }}
+              className={`icon-circle ${isHovered ? 'hovered' : ''}`}
+              style={!isHovered ? { transform: baseTransform } : {}}
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               <img src={item.img} alt={item.label} />
               <span className="icon-label">{item.label}</span>
