@@ -21,36 +21,27 @@
   z-index: 2;
 }
 
-.icon-circle {
+.icon-wrapper {
   position: absolute;
+}
+
+.icon-circle {
   width: 100px;
   height: 100px;
-  background: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.3s ease,
-    border 0.3s ease,
-    top 0.4s ease,
-    left 0.4s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border: 2px solid transparent;
-  flex-direction: column;
-  text-align: center;
   pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  border: 2px solid transparent;
+  transition: transform 0.4s ease, box-shadow 0.3s ease, border 0.3s ease;
+  text-align: center;
 }
 
-/* 👇 HOVER EFFECT — move icon to screen center */
 .icon-circle:hover {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: scale(1.5) translate(-50%, -50%);
-  z-index: 999;
-  cursor: pointer;
+  transform: scale(1.5);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 15px rgba(0, 102, 255, 0.4);
   border-color: #007bff;
 }
@@ -66,7 +57,7 @@
 /* Tooltip */
 .icon-tooltip {
   position: absolute;
-  top: -50px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #000;
@@ -76,17 +67,11 @@
   font-size: 11px;
   text-align: center;
   white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
   z-index: 10;
-}
-
-.icon-circle:hover .icon-tooltip {
   opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-/* Tooltip tail */
 .icon-tooltip::after {
   content: '';
   position: absolute;
@@ -98,7 +83,7 @@
   border-color: #000 transparent transparent transparent;
 }
 
-/* Label below icon */
+/* Label below the icon */
 .icon-label {
   position: absolute;
   bottom: -26px;
@@ -106,7 +91,7 @@
   color: white;
   white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 
 .icon-circle:hover .icon-label {

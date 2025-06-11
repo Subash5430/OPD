@@ -57,22 +57,22 @@ const SplineScene = () => {
           const x = radius * Math.cos(angle);
           const y = radius * Math.sin(angle);
 
-          const isHovered = hoveredIndex === i;
-          const baseTransform = `translate(${x}px, ${y}px)`;
-
           return (
-            <a
+            <div
               key={i}
-              href={item.href}
-              className={`icon-circle ${isHovered ? 'hovered' : ''}`}
-              style={!isHovered ? { transform: baseTransform } : {}}
+              className="icon-wrapper"
+              style={{ transform: `translate(${x}px, ${y}px)` }}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <img src={item.img} alt={item.label} />
-              <span className="icon-label">{item.label}</span>
-              <div className="icon-tooltip">{item.info}</div>
-            </a>
+              <a href={item.href} className="icon-circle">
+                <img src={item.img} alt={item.label} />
+                <span className="icon-label">{item.label}</span>
+                {hoveredIndex === i && (
+                  <div className="icon-tooltip">{item.info}</div>
+                )}
+              </a>
+            </div>
           );
         })}
       </div>
