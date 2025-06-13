@@ -1,0 +1,74 @@
+/* Center the form in the page */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  padding-left: 200%;
+  /* background: linear-gradient(to bottom right, #e9eef3, #f8f9ff); */
+}
+
+/* Card-style container */
+.login-card {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:  center ;
+  width: 320px;
+}
+
+/* Form fields */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+/* Input fields */
+.login-input {
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 300px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.sign-up{
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+.login-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit button */
+.login-button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Heading */
+.login-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
