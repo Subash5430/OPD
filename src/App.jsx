@@ -1,17 +1,31 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import SplineScene from './SplineScene';
 import {Login} from './login.jsx'; // <-- Your Login component
+import { Signup } from './SignUp.jsx';
 // ... other pages
 
 function App() {
+  const router=createBrowserRouter([
+    {
+      path:'/',
+      children:[
+        {
+          path:'/',
+          element: <SplineScene />
+        },
+        {
+          path:'/login',
+          element:<Login />
+        },
+        {
+          path:'/signup',
+          element:<Signup />
+        }
+      ]
+    }
+  ])
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<SplineScene />} />
-        <Route path="/login" element={<Login />} />
-        {/* Add other routes as needed */}
-      </Routes>
-    </Router>
+    <RouterProvider router={router} />
   );
 }
 
