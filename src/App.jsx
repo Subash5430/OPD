@@ -3,7 +3,7 @@ import SplineScene from './SplineScene';
 import {Login} from './login.jsx'; // <-- Your Login component
 import { Signup } from './SignUp.jsx';
 // ... other pages
-
+import UploadPrescription from './UploadPrescription.jsx'
 function App() {
   const router=createBrowserRouter([
     {
@@ -20,7 +20,11 @@ function App() {
         {
           path:'/signup',
           element:<Signup />
-        }
+        },
+        {
+          path:'/upload',
+          element:<UploadPrescription />
+        },
       ]
     }
   ])
